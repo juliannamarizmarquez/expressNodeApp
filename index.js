@@ -12,7 +12,9 @@ const server = http.createServer(app);
 
 // Middleware
 app.use(cors({
-  origin: "https://vite-react-app-h8l2.onrender.com"
+  origin: "https://vite-react-app-h8l2.onrender.com", // Your exact frontend URL
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"]
 }));
 app.use(express.json());
 
