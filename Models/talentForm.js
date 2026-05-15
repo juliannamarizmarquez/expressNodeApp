@@ -1,10 +1,13 @@
-const mongoose = require("mongoose"); // ONLY this line is needed
+const mongoose = require("mongoose");
 
-const FormSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    age: { type: Number, required: true },
-    email: { type: String, required: true, unique: true},
-    talent: { type: String, required: true}
+const talentSchema = new mongoose.Schema({
+    name: String,
+    age: Number,
+    email: {
+        type: String,
+        unique: true
+    },
+    talent: String
 });
 
-module.exports = mongoose.model("Form", FormSchema);
+module.exports = mongoose.model("Form", talentSchema);
