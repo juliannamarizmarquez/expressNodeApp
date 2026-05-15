@@ -16,9 +16,6 @@ app.use(cors({
     allowedHeaders: ["Content-Type"],
     credentials: true
 }));
-
-app.options("*", cors());
-
 app.use(express.json());
 
 // MongoDB Connection
