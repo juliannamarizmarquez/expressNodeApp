@@ -11,12 +11,16 @@ const app = express();
 const server = http.createServer(app);
 
 // Middleware
+// 1. Middlewares first
 app.use(cors({
-  origin: "https://vite-react-app-h8l2.onrender.com", // Your exact frontend URL
+  origin: "https://vite-react-app-h8l2.onrender.com",
   methods: ["GET", "POST"],
   allowedHeaders: ["Content-Type"]
 }));
 app.use(express.json());
+
+// 2. Routes second
+app.use("/submit", submitTalentForm);
 
 // MongoDB Connection 
 // Use process.env.MONGO_URI for security, or keep your string for now
