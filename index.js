@@ -10,7 +10,15 @@ const app = express();
 const server = http.createServer(app);
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: "https://vite-react-app-h8l2.onrender.com",
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type"],
+    credentials: true
+}));
+
+app.options("*", cors());
+
 app.use(express.json());
 
 // MongoDB Connection

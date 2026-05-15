@@ -30,23 +30,22 @@ const Form = require("../Models/talentForm");
 
 // module.exports = router;
 
-
 router.post("/", async (req, res) => {
-  try {
-    console.log(req.body);
+    try {
+        console.log(req.body);
 
-    res.status(200).json({
-      success: true,
-      message: "Form submitted successfully",
-      data: req.body
-    });
+        res.status(200).json({
+            success: true,
+            message: "Form submitted successfully",
+            data: req.body
+        });
 
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: error.message
-    });
-  }
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
+    }
 });
 
 module.exports = router;
