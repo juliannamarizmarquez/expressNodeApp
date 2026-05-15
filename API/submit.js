@@ -1,15 +1,16 @@
 const express = require("express");
 const router = express.Router();
-const Form = require("../Models/talentForm");
+const Form = require("../Models/talentForm"); // Import the Mongoose model
 
 // POST route to handle form submissions
- router.post("/", async (req, res) => {
+router.post("/", async (req, res) => {
   const { name, age, email, talent } = req.body;
 
   try {
+    // Create a new document in the database
     const formEntry = new Form({ name, age, email, talent });
-    const savedEntry = await formEntry.save(); 
-    
+    const savedEntry = await formEntry.save(); // Save to MongoDB
+
     console.log("Saved Data: ", savedEntry);
     
     res.status(201).json({ 
@@ -20,6 +21,7 @@ const Form = require("../Models/talentForm");
   } catch (error) {
     console.error("Error saving form data:", error);
 
+    // Handle duplicate email error (if `email` is unique in the schema)
     if (error.code === 11000) {
       res.status(400).json({ message: "Email already exists!" });
     } else {
