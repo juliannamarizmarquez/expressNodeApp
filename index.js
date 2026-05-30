@@ -14,14 +14,16 @@ app.get('/', (req, res) =>{
   res.send("server is running")
 })
 
-// MongoDB Connection 
-mongoose.connect("mongodb+srv://guancristopher56_db_user:111903@expressnodedb.riffiv0.mongodb.net/myDatabase?retryWrites=true&w=majority")
-.then(() => {
-    console.log("MongoDB Connected");
-})
-.catch((error) => {
+
+// MongoDB Connection
+// MongoDB Connection
+mongoose.connect("mongodb+srv://juliannamarizmarquez:Julianna20@expressnodeapp.qcqpb5c.mongodb.net/")
+  .then(() => {
+    console.log("MongoDB Connected Successfully");
+  })
+  .catch((error) => {
     console.error("MongoDB Error:", error.message);
-});
+  });
 
 //Middleware
 app.use(cors());
